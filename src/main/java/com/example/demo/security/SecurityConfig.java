@@ -1,4 +1,4 @@
-package com.example.demo.security;
+/*package com.example.demo.security;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -13,13 +13,13 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
+                .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/h2-console/**").permitAll()
+                        .requestMatchers("/api/members/**").permitAll()
                         .anyRequest().authenticated()
                 )
-                .csrf(csrf -> csrf
-                        .ignoringRequestMatchers("/h2-console/**")
-                )
+
                 .headers(headers -> headers
                         .frameOptions(frame -> frame.sameOrigin())
                 )
@@ -27,3 +27,4 @@ public class SecurityConfig {
         return http.build();
     }
 }
+*/
