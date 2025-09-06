@@ -56,17 +56,17 @@ public class MemberController {
 
     //Uppdatera member
     @PutMapping("/update/{id}")
-    public ResponseEntity<MemberDTO> updateMember(@PathVariable String UUID, @RequestBody CreateMemberRequest member) {
-        MemberDTO updatedMember = memberService.updateMember(Long.valueOf(UUID), member);
+    public ResponseEntity<MemberDTO> updateMember(@PathVariable Long Id, @RequestBody CreateMemberRequest member) {
+        MemberDTO updatedMember = memberService.updateMember(Id, member);
 
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(updatedMember);
     }
 
     //Radera member
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<Void> deleteMember(@PathVariable String UUID) {
+    public ResponseEntity<Void> deleteMember(@PathVariable Long id) {
 
-        boolean deleted = memberService.deleteMember(Long.valueOf(UUID));
+        boolean deleted = memberService.deleteMember(id);
 
         if(!deleted) {
             return ResponseEntity.notFound().build();
