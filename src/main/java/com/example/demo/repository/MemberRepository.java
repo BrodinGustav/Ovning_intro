@@ -1,4 +1,13 @@
 package com.example.demo.repository;
 
-public class memberRepository {
+import com.example.demo.models.Member;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface MemberRepository extends JpaRepository<Member, Long> {
+    Member findByEmail (String email);
+    Member findByName (String name);
+
+
 }
