@@ -3,9 +3,11 @@ package com.example.demo.mapper;
 import com.example.demo.dto.MemberDTO;
 import com.example.demo.models.Member;
 import com.example.demo.payload.request.CreateMemberRequest;
+import lombok.Data;
 import org.springframework.stereotype.Component;
 
 @Component
+@Data
 public class MemberMapper {
 
     public Member fromCreateMemberRequest(CreateMemberRequest req) {
@@ -23,6 +25,7 @@ public class MemberMapper {
 
         MemberDTO memberDTO = new MemberDTO();
 
+        memberDTO.setId(member.getId());
         memberDTO.setName(member.getName());
         memberDTO.setEmail(member.getEmail());
         memberDTO.setAdress(member.getAdress());
@@ -32,6 +35,8 @@ public class MemberMapper {
 
     public Member toEntity(MemberDTO memberDTO) {
         Member entity = new Member();
+
+        entity.setId(memberDTO.getId());
         entity.setName(memberDTO.getName());
         entity.setEmail(memberDTO.getEmail());
         entity.setAdress(memberDTO.getAdress());

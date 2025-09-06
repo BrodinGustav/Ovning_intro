@@ -1,21 +1,17 @@
 package com.example.demo.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
-@Getter
-@Setter
+@Table(name = "member")
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 public class Member {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long UUID;
+    private Long id;
 
     private String name;
     private String adress;

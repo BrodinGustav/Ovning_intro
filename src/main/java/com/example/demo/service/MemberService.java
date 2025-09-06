@@ -21,6 +21,7 @@ public class MemberService {
 
     //Skapa medlem
     public MemberDTO createMember(CreateMemberRequest req) {
+        System.out.println("Received request: " + req);
         Member member = memberMapper.fromCreateMemberRequest(req);
 
         Member savedMember = memberRepository.save(member);
@@ -34,9 +35,6 @@ public class MemberService {
                 .map(memberMapper::toDTO)
                 .toList();
 
-        if (members == null) {
-            throw new RuntimeException("No members found");
-        }
         return members;
     }
 
@@ -55,8 +53,8 @@ public class MemberService {
     }
 
     //Uppdatera medlem
-    public MemberDTO updateMember (Long UUID, CreateMemberRequest req) {
-        Member member = memberRepository.findById(UUID)
+    public MemberDTO updateMember (Long id, CreateMemberRequest req) {
+        Member member = memberRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Member not found."));
 
         //Uppdatera fält
@@ -71,9 +69,9 @@ public class MemberService {
     }
 
     //Radera medlem
-    public boolean deleteMember(Long UUID) {
-        if (memberRepository.existsById(UUID)) {
-            memberRepository.deleteById(UUID);
+    public boolean deleteMember(Long id) {
+        if (memberRepository.existsById(id)) {
+            memberRepository.deleteById(id);
         }
         return false;
     }

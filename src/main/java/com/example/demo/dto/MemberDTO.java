@@ -9,7 +9,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class MemberDTO {
-    private long UUID;
+    private Long id;
 
     private String name;
     private String adress;
