@@ -15,7 +15,7 @@ public class MemberMapper {
 
         member.setName(req.name());
         member.setEmail(req.email());
-        member.setAdress(req.adress());
+        member.setAddress(req.adress());
         member.setPhoneNumber(req.phoneNumber());
 
         return member;
@@ -28,7 +28,7 @@ public class MemberMapper {
         memberDTO.setId(member.getId());
         memberDTO.setName(member.getName());
         memberDTO.setEmail(member.getEmail());
-        memberDTO.setAdress(member.getAdress());
+        memberDTO.setAdress(member.getAddress());
         memberDTO.setPhoneNumber(member.getPhoneNumber());
         return memberDTO;
     }
@@ -39,7 +39,7 @@ public class MemberMapper {
         entity.setId(memberDTO.getId());
         entity.setName(memberDTO.getName());
         entity.setEmail(memberDTO.getEmail());
-        entity.setAdress(memberDTO.getAdress());
+        entity.setAddress(memberDTO.getAdress());
         entity.setPhoneNumber(memberDTO.getPhoneNumber());
         return entity;
     }

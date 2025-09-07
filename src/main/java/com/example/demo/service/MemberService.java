@@ -61,7 +61,7 @@ public class MemberService {
         member.setPhoneNumber(req.phoneNumber());
         member.setEmail(req.email());
         member.setName(req.name());
-        member.setAdress(req.adress());
+        member.setAddress(req.adress());
 
         memberRepository.save(member);
 
